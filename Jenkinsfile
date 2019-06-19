@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Connect') {
       steps {
-        sh 'docker exec -t postgres_jenkins bash -c ./script.sh'
+        sh 'docker exec -i postgres_jenkins bash -c chmod 775 ./script.sh'
         sh 'sudo ./script.sh'
         sh 'pwd'
       }
