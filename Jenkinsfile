@@ -16,7 +16,7 @@ pipeline {
     }
     stage('Run') {
       steps {
-        sh 'docker run -d -p 5433:5432 -e POSTGRES_PASSWORD=password -e POSTGRES_USER=postgres -e POSTGRES_DB=jenkins  postgres_jenkins'
+        sh 'docker run  --name postgres_jenkins -d -p 5433:5432 -e POSTGRES_PASSWORD=password -e POSTGRES_USER=postgres -e POSTGRES_DB=jenkins  --network dbengine_apihook  postgres_jenkins'
       }
     }
     /*
