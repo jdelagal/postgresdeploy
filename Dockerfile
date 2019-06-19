@@ -19,7 +19,7 @@ RUN chmod +x script.sh
 #ENV HOME /root
 
 # Define working directory.
-#WORKDIR /root
+WORKDIR /
 
 EXPOSE 5432
 
