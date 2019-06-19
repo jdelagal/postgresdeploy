@@ -21,8 +21,8 @@ pipeline {
     }
     stage('Connect') {
       steps {
-        sh "docker exec -i postgres_jenkins bash"
-        sh './script.sh ${params.Organizacion}'
+        sh 'docker exec -i postgres_jenkins bash'
+        sh './script.sh'
         sh 'pwd'
       }
     }
