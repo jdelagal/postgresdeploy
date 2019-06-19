@@ -10,9 +10,9 @@ FROM postgres:latest
 
 # Add files.
 
-#ADD root/script.sh /root/script.sh
+ADD script.sh script.sh
 
-#RUN chmod +x /root/script.sh
+RUN chmod +x script.sh
 
 # Install IBM Toolkit Apiconnect Licencia
 # Set environment variables.
