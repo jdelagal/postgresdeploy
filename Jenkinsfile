@@ -19,12 +19,14 @@ pipeline {
         sh 'docker run -d -p 5433:5432 -e POSTGRES_PASSWORD=password -e POSTGRES_USER=postgres -e POSTGRES_DB=jenkins  postgres_jenkins'
       }
     }
+    /*
     stage('Kill') {
       steps {
         sh 'docker stop docker_jenkins_1'
         sh 'docker rm docker_jenkins_1'
       }
     }
+    */
   }
   parameters {
     string(defaultValue: 'false', description: 'visibilidad por organizacion', name: 'Organizacion')
