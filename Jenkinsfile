@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    /*
+    
     stage('Example') {
       steps {
         echo "Hello ${params.Organizacion}"
@@ -20,7 +20,16 @@ pipeline {
         sh 'docker run  --name postgres_jenkins -d -p 5433:5432 -e POSTGRES_PASSWORD=password -e POSTGRES_USER=postgres -e POSTGRES_DB=jenkins  --network dbengine_apihook  postgres_jenkins'
       }
     }
-   
+
+    
+
+    stage('Connect') {
+      steps {
+        sh 'docker exec -i postgres_jenkins bash -c ./script.sh'
+      }
+    }
+
+    /*
     stage('Kill') {
       steps {
         sh 'docker stop postgres_jenkins'
@@ -28,14 +37,6 @@ pipeline {
       }
     }
     */
-
-    stage('Connect') {
-      steps {
-        sh 'docker exec -i postgres_jenkins bash'
-        sh './script.sh'
-        sh 'pwd'
-      }
-    }
   }
   parameters {
     string(defaultValue: 'false', description: 'visibilidad por organizacion', name: 'Organizacion')
