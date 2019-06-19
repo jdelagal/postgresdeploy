@@ -5,7 +5,7 @@
 #
 
 # Pull base image.
-FROM postgres_jenkins:latest
+FROM postgres:latest
 
 
 # Add files.
