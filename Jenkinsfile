@@ -19,8 +19,7 @@ pipeline {
         sh 'docker run  --name postgres_jenkins -d -p 5433:5432 -e POSTGRES_PASSWORD=password -e POSTGRES_USER=postgres -e POSTGRES_DB=jenkins  --network dbengine_apihook  postgres_jenkins'
       }
     }
-<<<<<<< HEAD
-    /*
+   /*
     stage('Kill') {
       steps {
         sh 'docker stop postgres_jenkins'
@@ -35,8 +34,6 @@ pipeline {
         sh 'pwd'
       }
     }
-=======
->>>>>>> 963313361aee03903d3f2c7a56b759a2765e870b
   }
   parameters {
     string(defaultValue: 'false', description: 'visibilidad por organizacion', name: 'Organizacion')
