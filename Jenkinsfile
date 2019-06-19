@@ -1,6 +1,7 @@
 pipeline {
   agent any
   stages {
+    /*
     stage('Example') {
       steps {
         echo "Hello ${params.Organizacion}"
@@ -19,7 +20,7 @@ pipeline {
         sh 'docker run  --name postgres_jenkins -d -p 5433:5432 -e POSTGRES_PASSWORD=password -e POSTGRES_USER=postgres -e POSTGRES_DB=jenkins  --network dbengine_apihook  postgres_jenkins'
       }
     }
-   /*
+   
     stage('Kill') {
       steps {
         sh 'docker stop postgres_jenkins'
