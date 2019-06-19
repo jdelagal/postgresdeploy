@@ -16,10 +16,9 @@ pipeline {
     }
     stage('Run') {
       steps {
-        sh 'docker-compose -f docker-compose-pgadmin.yml up -d'
+        sh 'docker run -d -p 5433:5432 -e POSTGRES_PASSWORD=password -e POSTGRES_USER=postgres -e POSTGRES_DB=jenkins  postgres_jenkins '
       }
     }
-    
     stage('Kill') {
       steps {
         sh 'docker stop docker_jenkins_1'
