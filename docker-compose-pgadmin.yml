@@ -1,0 +1,14 @@
+version: '2'
+services:
+  jenkins:
+    image: postgres_jenkins
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=jenkins
+    networks:
+      - apihook
+networks:
+  apihook:

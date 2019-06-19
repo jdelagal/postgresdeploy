@@ -11,31 +11,19 @@ pipeline {
         CI = 'true'
       }
       steps {
-        sh 'docker build -t toolkit -f Dockerfile .'
+        sh 'docker build -t postgres_jenkins -f Dockerfile .'
       }
     }
     stage('Run') {
       steps {
-        sh 'docker run -d --name toolkit_running -u root -it toolkit'
+        sh 'docker-compose -f docker-compose-pgadmin.yml up -d'
       }
     }
-    stage('Prepare') {
-      steps {
-        sh 'echo "prepare"'
-      }
-    }
-    stage('Connect') {
-      steps {
-        sh 'docker network connect apiconnectdockermaster_ibmnet  toolkit_running'
-        sh "docker exec -i toolkit_running bash -c ./script.sh ${params.Organizacion}"
-        sh 'ls -ltr'
-        sh 'pwd'
-      }
-    }
+    
     stage('Kill') {
       steps {
-        sh 'docker sto toolkit_running'
-        sh 'docker rm toolkit_running'
+        sh 'docker stop docker_jenkins_1'
+        sh 'docker rm docker_jenkins_1'
       }
     }
   }
