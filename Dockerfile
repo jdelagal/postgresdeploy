@@ -25,4 +25,4 @@ WORKDIR /
 EXPOSE 5432
 
 # Define default command.
-CMD ["bash"]
+#CMD ["bash"]
