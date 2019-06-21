@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Echo') {
       steps {
-        echo "Hello ${params.Organizacion}"
+        echo "Hello ${params.sql}"
       }
     }
     /*
