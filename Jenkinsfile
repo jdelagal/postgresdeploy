@@ -24,8 +24,6 @@ pipeline {
   }
   parameters {
     string(defaultValue: 'false', description: 'visibilidad por organizacion', name: 'Organizacion')
-  }
- parameters {
     string(defaultValue: 'false', description: 'Remote SQL', name: 'sql')
   }
 }
