@@ -14,8 +14,18 @@ pipeline {
        '''
       }
     }
+    stage('Create') {
+      steps {
+        sh '''
+        docker exec -i  postgresdeploy_jenkins_1 psql -U postgres -c ${params.sql}"
+       '''
+      }
+    }
   }
   parameters {
     string(defaultValue: 'false', description: 'visibilidad por organizacion', name: 'Organizacion')
+  }
+ parameters {
+    string(defaultValue: 'false', description: 'Remote SQL', name: 'sql')
   }
 }
