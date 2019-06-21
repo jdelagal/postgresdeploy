@@ -6,6 +6,7 @@ pipeline {
         echo "Hello ${params.Organizacion}"
       }
     }
+    /*
     stage('Create') {
       steps {
         sh '''
@@ -14,6 +15,7 @@ pipeline {
        '''
       }
     }
+    */
     stage('SQL') {
       steps {
         sh '''
