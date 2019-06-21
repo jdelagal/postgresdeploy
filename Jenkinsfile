@@ -19,7 +19,7 @@ pipeline {
     stage('SQL') {
       steps {
         sh '''
-        docker exec -i  postgresdeploy_jenkins_1 psql -U postgres -c ${params.sql}"
+        docker exec -i  postgresdeploy_jenkins_1 psql -U postgres -c "${params.sql}"
        '''
       }
     }
