@@ -1,11 +1,11 @@
 pipeline {
   agent any
-  stage('Echo') {
+  stages {
+    stage('Echo') {
       steps {
         echo "Hello ${params.Organizacion}"
       }
-  }
-  stages {
+    }
     stage('Create') {
       steps {
         sh '''
